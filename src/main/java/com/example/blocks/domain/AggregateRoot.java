@@ -5,13 +5,13 @@ import java.util.ArrayList;
 abstract class AggregateRoot {
     private ArrayList<Event> events;
 
-    void recordThat(Event e) {
+    final protected void recordThat(Event e) {
         events.add(e);
     }
 
-    ArrayList<Event> pullEvents() {
+    final protected ArrayList<Event> pullEvents() {
         ArrayList<Event> recorded = events;
-        
+
         events.clear();
 
         return recorded;
