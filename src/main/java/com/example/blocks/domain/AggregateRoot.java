@@ -5,7 +5,7 @@ import java.util.ArrayList;
 abstract public class AggregateRoot {
     private ArrayList<Event> events;
 
-    final protected void recordThat(Event e) {
+    final protected void recordThat(final Event e) {
         events.add(e);
     }
 
