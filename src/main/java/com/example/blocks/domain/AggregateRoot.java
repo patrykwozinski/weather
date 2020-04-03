@@ -2,7 +2,7 @@ package com.example.blocks.domain;
 
 import java.util.ArrayList;
 
-abstract class AggregateRoot {
+abstract public class AggregateRoot {
     private ArrayList<Event> events;
 
     final protected void recordThat(Event e) {
