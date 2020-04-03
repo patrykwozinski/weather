@@ -5,6 +5,10 @@ import java.util.ArrayList;
 abstract public class AggregateRoot {
     private ArrayList<Event> events;
 
+    protected AggregateRoot() {
+        this.events = new ArrayList<>();
+    }
+
     final protected void recordThat(final Event e) {
         events.add(e);
     }
