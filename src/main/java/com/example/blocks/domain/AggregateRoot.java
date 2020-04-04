@@ -14,7 +14,7 @@ abstract public class AggregateRoot {
     }
 
     final protected ArrayList<Event> pullEvents() {
-        ArrayList<Event> recorded = events;
+        ArrayList<Event> recorded = new ArrayList<>(this.events);
 
         events.clear();
 
