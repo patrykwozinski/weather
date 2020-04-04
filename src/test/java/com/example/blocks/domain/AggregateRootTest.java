@@ -34,7 +34,6 @@ public class AggregateRootTest {
         // Given
         this.aggregate.someAction();
 
-
         // When
         this.aggregate.pullEvents();
         ArrayList<Event> secondTimePulled = this.aggregate.pullEvents();
