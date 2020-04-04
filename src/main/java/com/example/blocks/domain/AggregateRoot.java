@@ -17,7 +17,7 @@ abstract public class AggregateRoot {
         return recorded;
     }
 
-    final protected void recordThat(final Event e) {
+    protected final void recordThat(final Event e) {
         events.add(e);
     }
 }

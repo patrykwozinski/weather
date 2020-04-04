@@ -45,7 +45,7 @@ public class AggregateRootTest {
     }
 
     private static class ExampleAggregate extends AggregateRoot {
-        final private UUID expectedId;
+        private final UUID expectedId;
 
         ExampleAggregate(UUID expectedId) {
             this.expectedId = expectedId;
@@ -57,7 +57,7 @@ public class AggregateRootTest {
     }
 
     private static class ExampleEvent implements Event {
-        final private UUID id;
+        private final UUID id;
 
         ExampleEvent(UUID id) {
             this.id = id;
