@@ -1,5 +1,7 @@
-package com.example.blocks.domain;
+package com.example.blocks.unit.domain;
 
+import com.example.blocks.domain.AggregateRoot;
+import com.example.blocks.domain.Event;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

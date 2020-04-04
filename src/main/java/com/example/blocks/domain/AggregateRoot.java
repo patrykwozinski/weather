@@ -9,15 +9,15 @@ abstract public class AggregateRoot {
         this.events = new ArrayList<>();
     }
 
-    final protected void recordThat(final Event e) {
-        events.add(e);
-    }
-
-    final protected ArrayList<Event> pullEvents() {
+    public final ArrayList<Event> pullEvents() {
         ArrayList<Event> recorded = new ArrayList<>(this.events);
 
         events.clear();
 
         return recorded;
+    }
+
+    final protected void recordThat(final Event e) {
+        events.add(e);
     }
 }
