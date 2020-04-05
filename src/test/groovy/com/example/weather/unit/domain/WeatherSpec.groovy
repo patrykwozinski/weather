@@ -37,7 +37,9 @@ final class WeatherSpec extends Specification {
             weather.update(sensor)
 
         then:
-            weather.pullEvents().first() instanceof WeatherUpdated
+            WeatherUpdated event = weather.pullEvents().first() as WeatherUpdated
+            event.weatherId().is(weather.id())
+            event.measurement().isSuccessful()
     }
 
     def 'weather not updated when sensor is not working'() {

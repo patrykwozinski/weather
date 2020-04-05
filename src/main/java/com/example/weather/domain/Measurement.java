@@ -1,6 +1,6 @@
 package com.example.weather.domain;
 
-final class Measurement {
+public final class Measurement {
     private final Result result;
     private final Temperature temp;
 

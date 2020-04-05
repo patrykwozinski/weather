@@ -22,11 +22,15 @@ public final class Weather extends AggregateRoot {
         return weather;
     }
 
+    public WeatherId id() {
+        return this.id;
+    }
+
     public void update(Sensor sensor) {
         Measurement measurement = sensor.measureFor(this.city);
 
         if (measurement.isSuccessful()) {
-            this.recordThat(new WeatherUpdated(this.id));
+            this.recordThat(new WeatherUpdated(this.id, measurement));
         }
     }
 
