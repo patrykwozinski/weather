@@ -17,7 +17,7 @@ final class Temperature {
         return new Temperature(Unit.fahrenheit, degrees);
     }
 
-    enum Unit {
+    private enum Unit {
         celsius,
         fahrenheit,
     }

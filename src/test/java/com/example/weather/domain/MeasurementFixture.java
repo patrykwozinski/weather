@@ -5,6 +5,10 @@ public final class MeasurementFixture {
         return Measurement.successful(anyTemperature());
     }
 
+    public static Measurement anyFailedMeasurement() {
+        return Measurement.failed();
+    }
+
     private static Temperature anyTemperature() {
         return Temperature.forCelsius(23);
     }

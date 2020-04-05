@@ -8,6 +8,7 @@ import com.example.weather.domain.event.WeatherRecorded
 import spock.lang.Specification
 
 import static com.example.weather.domain.CityFixture.anyCity
+import static com.example.weather.domain.SensorFixture.notWorkingSensor
 import static com.example.weather.domain.SensorFixture.workingSensor
 import static com.example.weather.domain.WeatherFixture.anyWeather
 
@@ -17,8 +18,10 @@ final class WeatherSpec extends Specification {
         given:
             WeatherId weatherId = WeatherId.create()
             def city = anyCity()
+
         when:
             Weather weather = Weather.record(weatherId, city)
+
         then:
             WeatherRecorded event = weather.pullEvents().first() as WeatherRecorded
             event.weatherId() == weatherId
@@ -26,6 +29,7 @@ final class WeatherSpec extends Specification {
 
     def 'successfully updated weather when sensor is working'() {
         given:
+
             Weather weather = anyWeather()
             Sensor sensor = workingSensor()
 
@@ -34,5 +38,17 @@ final class WeatherSpec extends Specification {
 
         then:
             weather.pullEvents().first() instanceof WeatherUpdated
+    }
+
+    def 'weather not updated when sensor is not working'() {
+        given:
+            Weather weather = anyWeather()
+            Sensor sensor = notWorkingSensor()
+
+        when:
+            weather.update(sensor)
+
+        then:
+            weather.pullEvents().isEmpty()
     }
 }

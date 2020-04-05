@@ -17,6 +17,10 @@ final class Measurement {
         return new Measurement(Result.successfully, temp);
     }
 
+    public static Measurement failed() {
+        return new Measurement(Result.failed);
+    }
+
     public boolean isSuccessful() {
         return this.result.equals(Result.successfully);
     }
