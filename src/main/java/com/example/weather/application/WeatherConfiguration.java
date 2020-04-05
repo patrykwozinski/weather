@@ -4,7 +4,6 @@ import com.example.weather.domain.Sensor;
 import com.example.weather.domain.WeatherCollection;
 import com.example.weather.infrastructure.FixedTemperatureSensor;
 import com.example.weather.infrastructure.InMemoryWeatherCollection;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
@@ -21,17 +20,17 @@ public class WeatherConfiguration {
         );
     }
 
-    @Bean
+//    @Bean
     WeatherFacade weatherFacade(CreateWeatherService createWeatherService, UpdateWeatherService updateWeatherService) {
         return new WeatherFacade(createWeatherService, updateWeatherService);
     }
 
-    @Bean
+//    @Bean
     CreateWeatherService createWeatherService(WeatherCollection weatherCollection) {
         return new CreateWeatherService(weatherCollection);
     }
 
-    @Bean
+//    @Bean
     UpdateWeatherService updateWeatherService(WeatherCollection weatherCollection, Sensor sensor) {
         return new UpdateWeatherService(weatherCollection, sensor);
     }
