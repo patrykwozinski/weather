@@ -1,9 +1,10 @@
 package com.example.blocks.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 abstract public class AggregateRoot {
-    private ArrayList<Event> events;
+    private List<Event> events;
 
     protected AggregateRoot() {
         this.events = new ArrayList<>();
