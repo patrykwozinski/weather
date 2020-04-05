@@ -1,6 +1,7 @@
-package com.example.weather.domain;
+package com.example.weather.domain.event;
 
 import com.example.blocks.domain.Event;
+import com.example.weather.domain.WeatherId;
 
 import java.util.UUID;
 
