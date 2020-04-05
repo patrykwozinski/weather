@@ -5,7 +5,7 @@ import io.vavr.control.Either;
 import static io.vavr.control.Either.left;
 import static io.vavr.control.Either.right;
 
-public final class Measurement {
+final class Measurement {
     private final Either<Measurement.Failure, Measurement.Success> result;
 
     private Measurement(Either<Measurement.Failure, Measurement.Success> result) {

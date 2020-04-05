@@ -1,11 +1,11 @@
 package com.example.weather.unit.domain
 
+import com.example.weather.domain.CannotUpdateWeather
 import com.example.weather.domain.Sensor
 import com.example.weather.domain.Weather
 import com.example.weather.domain.WeatherId
-import com.example.weather.domain.error.CannotUpdateWeather
-import com.example.weather.domain.event.WeatherUpdated
 import com.example.weather.domain.event.WeatherRecorded
+import com.example.weather.domain.event.WeatherUpdated
 import spock.lang.Specification
 
 import static com.example.weather.domain.CityFixture.anyCity
@@ -30,7 +30,6 @@ final class WeatherSpec extends Specification {
 
     def 'successfully updated weather when sensor is working'() {
         given:
-
             Weather weather = anyWeather()
             Sensor sensor = workingSensor()
 
@@ -40,7 +39,6 @@ final class WeatherSpec extends Specification {
         then:
             WeatherUpdated event = weather.pullEvents().first() as WeatherUpdated
             event.weatherId().is(weather.id())
-            event.measurement().isSuccessful()
     }
 
     def 'weather not updated when sensor is not working'() {

@@ -1,7 +1,4 @@
-package com.example.weather.domain.error;
-
-import com.example.weather.domain.Measurement;
-import com.example.weather.domain.WeatherId;
+package com.example.weather.domain;
 
 public final class CannotUpdateWeather extends Exception {
 

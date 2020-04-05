@@ -1,7 +1,6 @@
 package com.example.weather.domain;
 
 import com.example.blocks.domain.AggregateRoot;
-import com.example.weather.domain.error.CannotUpdateWeather;
 import com.example.weather.domain.event.WeatherRecorded;
 import com.example.weather.domain.event.WeatherUpdated;
 
@@ -34,7 +33,7 @@ public final class Weather extends AggregateRoot {
             throw CannotUpdateWeather.forMeasurement(this.id, measurement);
         }
 
-        this.recordThat(new WeatherUpdated(this.id, measurement));
+        this.recordThat(new WeatherUpdated(this.id, measurement.temperature()));
     }
 
 }

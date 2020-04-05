@@ -1,6 +1,6 @@
 package com.example.weather.domain;
 
-final class Temperature {
+public final class Temperature {
     private final Unit unit;
     private final int degrees;
 
