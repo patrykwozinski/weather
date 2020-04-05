@@ -17,6 +17,10 @@ public final class InMemoryWeatherCollection implements WeatherCollection {
         this.weathers = new HashMap<>();
     }
 
+    public void add(Weather weather) {
+        this.weathers.put(weather.id(), weather);
+    }
+
     @Override
     public Weather ofId(WeatherId id) throws WeatherNotFound {
         Optional<Weather> weather = this.weathers
