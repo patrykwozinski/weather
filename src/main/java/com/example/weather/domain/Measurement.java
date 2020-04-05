@@ -1,38 +1,58 @@
 package com.example.weather.domain;
 
+import io.vavr.control.Either;
+
+import static io.vavr.control.Either.left;
+import static io.vavr.control.Either.right;
+
 public final class Measurement {
-    private final Result result;
-    private final Temperature temp;
-    private String reason;
+    private final Either<Measurement.Failure, Measurement.Success> result;
 
-    private Measurement(Result result, Temperature temp) {
+    private Measurement(Either<Measurement.Failure, Measurement.Success> result) {
         this.result = result;
-        this.temp = temp;
-    }
-
-    private Measurement(Result result, Temperature temp, String reason) {
-        this(result, temp);
-        this.reason = reason;
     }
 
     public static Measurement successful(Temperature temp) {
-        return new Measurement(Result.successfully, temp);
+        return new Measurement(right(new Measurement.Success(temp)));
     }
 
     public static Measurement failed(String reason) {
-        return new Measurement(Result.failed, Temperature.unmeasured(), reason);
+        return new Measurement(left(new Measurement.Failure(reason)));
     }
 
     public boolean isSuccessful() {
-        return this.result.equals(Result.successfully);
+        return result.isRight();
+    }
+
+    public Temperature temperature() {
+        if (result.isRight()) {
+            return result.get().temp;
+        }
+
+        return Temperature.unmeasured();
     }
 
     public String reason() {
-        return this.reason;
+        if (result.isLeft()) {
+            return result.getLeft().reason;
+        }
+
+        return "OK";
     }
 
-    private enum Result {
-        successfully,
-        failed,
+    private static class Failure {
+        final String reason;
+
+        Failure(String reason) {
+            this.reason = reason;
+        }
+    }
+
+    private static class Success {
+        final Temperature temp;
+
+        Success(Temperature temp) {
+            this.temp = temp;
+        }
     }
 }
