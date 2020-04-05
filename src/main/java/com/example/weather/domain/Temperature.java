@@ -4,7 +4,7 @@ final class Temperature {
     private final Unit unit;
     private final int degrees;
 
-    Temperature(Unit unit, int degrees) {
+    private Temperature(Unit unit, int degrees) {
         this.unit = unit;
         this.degrees = degrees;
     }
