@@ -1,6 +1,6 @@
 package com.example.weather.domain;
 
-final class City {
+public final class City {
     private final String name;
 
     private City(String name) {
