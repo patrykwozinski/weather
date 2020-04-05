@@ -13,7 +13,8 @@ final class WeatherSpec extends Specification {
             WeatherId weatherId = WeatherId.create()
             def city = CityFixture.any()
         when:
-            WeatherRecorded event = Weather.record(weatherId, city).pullEvents().first() as WeatherRecorded
+            Weather weather = Weather.record(weatherId, city)
+            WeatherRecorded event = weather.pullEvents().first() as WeatherRecorded
         then:
             event.weatherId() == weatherId
     }
