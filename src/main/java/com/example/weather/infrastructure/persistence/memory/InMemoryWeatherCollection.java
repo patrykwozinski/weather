@@ -11,11 +11,15 @@ import java.util.Optional;
 
 public final class InMemoryWeatherCollection implements WeatherCollection {
 
-    final Map<WeatherId, Weather> weathers = new HashMap<>();
+    private final Map<WeatherId, Weather> weathers;
+
+    public InMemoryWeatherCollection() {
+        this.weathers = new HashMap<>();
+    }
 
     @Override
     public Weather ofId(WeatherId id) throws WeatherNotFound {
-        Optional<Weather> weather = weathers
+        Optional<Weather> weather = this.weathers
                 .values()
                 .stream()
                 .filter(w -> w.id().equals(id))
