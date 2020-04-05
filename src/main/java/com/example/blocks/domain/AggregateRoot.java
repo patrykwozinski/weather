@@ -10,7 +10,7 @@ abstract public class AggregateRoot {
         this.events = new ArrayList<>();
     }
 
-    public final ArrayList<Event> pullEvents() {
+    public final List<Event> pullEvents() {
         ArrayList<Event> recorded = new ArrayList<>(this.events);
 
         events.clear();
