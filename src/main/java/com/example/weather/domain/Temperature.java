@@ -17,6 +17,14 @@ final class Temperature {
         return new Temperature(Unit.fahrenheit, degrees);
     }
 
+    @Override
+    public String toString() {
+        return "Temperature{" +
+                "unit=" + unit +
+                ", degrees=" + degrees +
+                '}';
+    }
+
     private enum Unit {
         celsius,
         fahrenheit,
