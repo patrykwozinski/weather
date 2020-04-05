@@ -21,7 +21,7 @@ public final class Measurement {
         return this.result.equals(Result.successfully);
     }
 
-    enum Result {
+    private enum Result {
         successfully,
         failed,
     }
