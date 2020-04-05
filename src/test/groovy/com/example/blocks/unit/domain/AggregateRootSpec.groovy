@@ -14,7 +14,7 @@ final class AggregateRootSpec extends Specification {
     def 'event recorded when action invoked'() {
         when:
             aggregate.someAction()
-            Event event = aggregate.pullEvents().get(0)
+            Event event = aggregate.pullEvents().first()
         then:
             event.getId().is(expectedId)
     }
