@@ -1,4 +1,4 @@
-package com.example.weather.infrastructure.persistence.memory;
+package com.example.weather.infrastructure;
 
 import com.example.weather.domain.Weather;
 import com.example.weather.domain.WeatherCollection;
