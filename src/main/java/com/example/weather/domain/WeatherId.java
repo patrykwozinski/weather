@@ -26,4 +26,11 @@ public final class WeatherId {
 
         return Objects.equals(id, that.id);
     }
+
+    @Override
+    public String toString() {
+        return "WeatherId{" +
+                "id=" + id +
+                '}';
+    }
 }

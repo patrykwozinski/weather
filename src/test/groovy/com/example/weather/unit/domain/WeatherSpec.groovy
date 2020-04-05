@@ -3,6 +3,7 @@ package com.example.weather.unit.domain
 import com.example.weather.domain.Sensor
 import com.example.weather.domain.Weather
 import com.example.weather.domain.WeatherId
+import com.example.weather.domain.error.CannotUpdateWeather
 import com.example.weather.domain.event.WeatherUpdated
 import com.example.weather.domain.event.WeatherRecorded
 import spock.lang.Specification
@@ -51,6 +52,6 @@ final class WeatherSpec extends Specification {
             weather.update(sensor)
 
         then:
-            weather.pullEvents().isEmpty()
+            thrown CannotUpdateWeather
     }
 }
