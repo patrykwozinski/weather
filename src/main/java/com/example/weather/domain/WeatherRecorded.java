@@ -6,9 +6,9 @@ import java.util.UUID;
 
 public final class WeatherRecorded implements Event {
     private final UUID id;
-    private final UUID weatherId;
+    private final WeatherId weatherId;
 
-    public WeatherRecorded(UUID weatherId) {
+    public WeatherRecorded(WeatherId weatherId) {
         this.id = UUID.randomUUID();
         this.weatherId = weatherId;
     }
@@ -18,7 +18,7 @@ public final class WeatherRecorded implements Event {
         return this.id;
     }
 
-    public UUID weatherId() {
+    public WeatherId weatherId() {
         return this.weatherId;
     }
 }
