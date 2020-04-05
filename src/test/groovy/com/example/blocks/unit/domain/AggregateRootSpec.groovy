@@ -7,6 +7,7 @@ import spock.lang.Specification
 import static java.util.UUID.randomUUID
 
 final class AggregateRootSpec extends Specification {
+
     private static final UUID expectedId = randomUUID()
 
     private ExampleAggregate aggregate = new ExampleAggregate(expectedId)
@@ -53,4 +54,5 @@ final class AggregateRootSpec extends Specification {
             return this.id
         }
     }
+
 }
