@@ -1,15 +1,11 @@
 package com.example.weather.domain;
 
 final class Measurement {
-    private Result result;
-    private Temperature temp;
-
-    private Measurement(Result result) {
-        this.result = result;
-    }
+    private final Result result;
+    private final Temperature temp;
 
     private Measurement(Result result, Temperature temp) {
-        this(result);
+        this.result = result;
         this.temp = temp;
     }
 
@@ -18,7 +14,7 @@ final class Measurement {
     }
 
     public static Measurement failed() {
-        return new Measurement(Result.failed);
+        return new Measurement(Result.failed, Temperature.unmeasured());
     }
 
     public boolean isSuccessful() {

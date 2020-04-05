@@ -1,8 +1,8 @@
 package com.example.weather.domain;
 
 final class Temperature {
-    private Unit unit;
-    private int degrees;
+    private final Unit unit;
+    private final int degrees;
 
     Temperature(Unit unit, int degrees) {
         this.unit = unit;
@@ -17,6 +17,10 @@ final class Temperature {
         return new Temperature(Unit.fahrenheit, degrees);
     }
 
+    public static Temperature unmeasured() {
+        return new Temperature(Unit.none, 0);
+    }
+
     @Override
     public String toString() {
         return "Temperature{" +
@@ -26,6 +30,7 @@ final class Temperature {
     }
 
     private enum Unit {
+        none,
         celsius,
         fahrenheit,
     }

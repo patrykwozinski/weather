@@ -1,7 +1,7 @@
 package com.example.weather.domain;
 
 final class City {
-    private String name;
+    private final String name;
 
     private City(String name) {
         this.name = name;
