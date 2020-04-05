@@ -6,9 +6,10 @@ import spock.lang.Specification
 
 import static java.util.UUID.randomUUID
 
-class AggregateRootSpec extends Specification {
-    UUID expectedId = randomUUID()
-    ExampleAggregate aggregate = new ExampleAggregate(expectedId)
+final class AggregateRootSpec extends Specification {
+    private static final UUID expectedId = randomUUID()
+
+    private ExampleAggregate aggregate = new ExampleAggregate(expectedId)
 
     def 'event recorded when action invoked'() {
         when:
@@ -28,7 +29,7 @@ class AggregateRootSpec extends Specification {
             result.isEmpty()
     }
 
-    static class ExampleAggregate extends AggregateRoot {
+    private static class ExampleAggregate extends AggregateRoot {
         UUID expectedId
 
         ExampleAggregate(UUID id) {
@@ -40,7 +41,7 @@ class AggregateRootSpec extends Specification {
         }
     }
 
-    static class ExampleEvent implements Event {
+    private static class ExampleEvent implements Event {
         private final UUID id
 
         ExampleEvent(UUID id) {
