@@ -25,7 +25,7 @@ final class AggregateRootSpec extends Specification {
             aggregate.someAction()
         when:
             aggregate.pullEvents()
-            ArrayList<Event> result = aggregate.pullEvents()
+            List<Event> result = aggregate.pullEvents()
         then:
             result.isEmpty()
     }
