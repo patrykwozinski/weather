@@ -20,17 +20,17 @@ public class WeatherConfiguration {
         );
     }
 
-    @Bean(name = "weatherFacade")
+    @Bean
     WeatherFacade weatherFacade(CreateWeatherService createWeatherService, UpdateWeatherService updateWeatherService) {
         return new WeatherFacade(createWeatherService, updateWeatherService);
     }
 
-    @Bean(name = "createWeatherService")
+    @Bean
     CreateWeatherService createWeatherService(WeatherCollection weatherCollection) {
         return new CreateWeatherService(weatherCollection);
     }
 
-    @Bean(name = "updateWeatherService")
+    @Bean
     UpdateWeatherService updateWeatherService(WeatherCollection weatherCollection, Sensor sensor) {
         return new UpdateWeatherService(weatherCollection, sensor);
     }
