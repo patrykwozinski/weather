@@ -4,15 +4,15 @@ import com.example.weather.domain.Sensor;
 import com.example.weather.domain.WeatherCollection;
 import com.example.weather.infrastructure.FixedTemperatureSensor;
 import com.example.weather.infrastructure.InMemoryWeatherCollection;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class WeatherConfiguration {
-    private static final int ALWAYS_TEMPERATURE = 30;
 
     public WeatherFacade weatherFacade() {
         WeatherCollection weatherCollection = new InMemoryWeatherCollection();
-        Sensor sensor = new FixedTemperatureSensor(ALWAYS_TEMPERATURE);
+        Sensor sensor = new FixedTemperatureSensor();
 
         return weatherFacade(
                 createWeatherService(weatherCollection),
@@ -20,17 +20,17 @@ public class WeatherConfiguration {
         );
     }
 
-//    @Bean
+    @Bean(name = "weatherFacade")
     WeatherFacade weatherFacade(CreateWeatherService createWeatherService, UpdateWeatherService updateWeatherService) {
         return new WeatherFacade(createWeatherService, updateWeatherService);
     }
 
-//    @Bean
+    @Bean(name = "createWeatherService")
     CreateWeatherService createWeatherService(WeatherCollection weatherCollection) {
         return new CreateWeatherService(weatherCollection);
     }
 
-//    @Bean
+    @Bean(name = "updateWeatherService")
     UpdateWeatherService updateWeatherService(WeatherCollection weatherCollection, Sensor sensor) {
         return new UpdateWeatherService(weatherCollection, sensor);
     }

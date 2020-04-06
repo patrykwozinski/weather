@@ -4,11 +4,13 @@ import com.example.weather.domain.Weather;
 import com.example.weather.domain.WeatherCollection;
 import com.example.weather.domain.WeatherId;
 import com.example.weather.domain.WeatherNotFound;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Service
 public final class InMemoryWeatherCollection implements WeatherCollection {
 
     private final Map<WeatherId, Weather> weathers;
